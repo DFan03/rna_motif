@@ -117,9 +117,10 @@ rna_motif/
 - Commit small and often; no data/secrets in git.
 - Compute budget: all steps designed for a few thousand sequences max, minutes on M2 Pro; no GPU.
 
-## 4. Decisions to confirm (golden standards are currently empty/silent on these)
+## 4. Decisions to confirm
 
-`reference/golden_standard/` is empty and `~/.claude/standards/general_principles.md` only gives generic rules,
+Golden standards now exist in `reference/golden_standard/` (SUMMARY.md = DRAFT pending your approval; rule IDs LK-n = leakage
+paper, MV-n = JBC mRNA review). They cover splitting/leakage and known-element context but are silent on the items below,
 so I will NOT improvise on these; please decide or point me to a reference:
 
 - D1. Data source: NCBI Virus/RefSeq download via Entrez, or do you have the offline FASTA + metadata from the task? Which virus group (e.g. coronaviruses, flaviviruses, picornaviruses, influenza)? Suggest one family with RNA genomes and annotated UTRs (e.g. Flaviviridae or Coronaviridae).
@@ -127,7 +128,7 @@ so I will NOT improvise on these; please decide or point me to a reference:
 - D3. Background model: default dinucleotide-preserving shuffle (B2) with B1/B3 as sensitivity checks — OK?
 - D4. TE data: do you already have a TE dataset (Ribo-seq/MPRA) in mind, or should Phase 3 start with a literature/data search?
 - D5. Region scope: whole genome, or split into 5'UTR / CDS / 3'UTR using annotations (needs GenBank features)?
-- D6. If you have a review paper on RNA motif discovery / viral RNA data processing, put it in `reference/golden_standard/` so I can summarize it (SUMMARY.md for your approval) and follow it.
+- D6. If you have a review paper on RNA motif discovery / viral RNA data processing, put it in `reference/golden_standard/` so I can summarize it and follow it. (Neither current standard covers motif-enrichment statistics.)
 
 ## 5. Immediate next steps (after your sign-off)
 1. Answer D1-D6 (even partially).

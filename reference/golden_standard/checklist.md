@@ -1,0 +1,17 @@
+# Checklist (derived from SUMMARY.md; applies once SUMMARY.md is approved)
+Data / splitting
+- [ ] Sequences clustered by identity before any split; cluster = unit of split and of counting (LK-4, LK-3, LK-9)
+- [ ] Split fixed (with seed) before any threshold/PWM/feature selection; no joint preprocessing (LK-8)
+- [ ] Taxon composition reported; per-species cap or weights applied (LK-1)
+- [ ] Held-out clusters touched once for final evaluation (LK-10)
+Features / labels (Phase 3)
+- [ ] Label distribution per split checked (LK-2)
+- [ ] All features computable at inference time (LK-5); no taxon/length/cluster-size surrogates (LK-6)
+- [ ] Covariates included: length, GC, CAI/codon usage, region (UTR/CDS) (MV-4, MV-5)
+- [ ] Pretrained-model overlap checked if any are used (LK-7)
+Motif reliability
+- [ ] Codon-preserving background for CDS motifs (MV-4)
+- [ ] Candidates annotated vs known elements: uORF, ARE, MRE, IRES, frameshift stem-loop (MV-2, MV-3, MV-6)
+- [ ] Structure calls use partition-function bpp / consensus, not MFE alone (MV-6, MV-8)
+- [ ] Multiple components shown, not one opaque score (MV-7)
+- [ ] FDR-adjusted p-values, effect sizes with CI, seeds, versions recorded (general_principles 3,4,5)
