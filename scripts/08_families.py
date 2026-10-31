@@ -62,7 +62,7 @@ for reg in ["utr3", "utr5"]:
             groups_replicated=",".join(sorted(g.heldout.unique())), best_discovery_E=g.discovery_E.min(), best_fdr=g.fdr_bh.min(),
             rep_uid=best.uid, rep_consensus=consensus(mats[best.uid]), member_consensus=";".join(sorted(set(g.motif))[:6]),
             rep_fold=best.heldout, rep_motif_id=best.motif_id, rep_region=reg))
-F = pd.DataFrame(fam_rows)
+F = pd.DataFrame(fam_rows); F["fam_idx"] = F.index   # index used for the per-family fimo_fam{idx} folders
 
 # --- descriptive coverage of each family's representative on cluster representatives of ALL groups (includes discovery data)
 reps90 = {}
@@ -110,7 +110,7 @@ for i, r in F.iterrows():
         F.loc[i, "rfam_families"] = ",".join(f"{k}:{v}" for k, v in ov.most_common(3))
 F = F.sort_values(["n_groups_replicated", "groups_with_hit", "clusters_with_hit", "best_discovery_E"], ascending=[False, False, False, True]).reset_index(drop=True)
 F.insert(0, "rank", F.index + 1)
-keep = ["rank", "region", "rep_consensus", "n_motifs", "n_groups_replicated", "groups_replicated", "clusters_with_hit", "clusters_total", "groups_with_hit",
+keep = ["rank", "fam_idx", "rep_uid", "region", "rep_consensus", "n_motifs", "n_groups_replicated", "groups_replicated", "clusters_with_hit", "clusters_total", "groups_with_hit",
         "best_discovery_E", "best_fdr", "rel_pos_median", "rel_pos_iqr", "frac_sites_in_rfam", "rfam_families", "member_consensus"] + [c for c in F if c.startswith("cov_")]
 F[[c for c in keep if c in F]].to_csv(out/"families_ranked.tsv", sep="\t", index=False)
 pd.set_option("display.width", 250); print(F[["rank","region","rep_consensus","n_motifs","n_groups_replicated","clusters_with_hit","clusters_total","groups_with_hit","best_discovery_E","rel_pos_median","frac_sites_in_rfam","rfam_families"]].to_string(index=False))

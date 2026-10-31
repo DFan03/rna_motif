@@ -29,7 +29,7 @@ A discovered motif is a statistically over-represented pattern, **not** a valida
 ## First results (Phase 2, details in `docs/RESULTS_LOG.md`)
 - Discovery on 4 serogroups, test on the 5th (all 5 rotations); 246 candidate motifs, **41 replicate** (FDR<0.05, found in >=2 held-out clusters), 35 of them in the 3'UTR.
 - Replicated motifs are partly redundant (variants of the same locus); they sit on known Rfam flavivirus elements 54% of the time vs 41% expected by chance (descriptive).
-- **Families:** the 41 motifs merge (Tomtom) into **16 families** (13 in 3'UTR). Top families lie on the Rfam Flavivirus_DB, xrRNA and CRE elements and are conserved in all mosquito-borne groups but not TBEV. Ranked table: `results/families_v1/families_ranked.tsv`; coverage figure: `results/families_v1/family_coverage.png`.
+- **Families:** the 41 motifs merge (Tomtom) into **16 families** (12 in 3'UTR, 4 in 5'UTR). Top families lie on the Rfam Flavivirus_DB, xrRNA and CRE elements and are conserved in all mosquito-borne groups but not TBEV. Ranked table: `results/families_v1/families_ranked.tsv`; coverage figure: `results/families_v1/family_coverage.png`.
 - Sanity checks: planted motif recovered; random RNA gives 0 motifs at E<0.05; a bug in the validation join was caught and fixed (see RESULTS_LOG).
 - This shows conservation across serogroups, **not** regulatory function or effect on TE.
 

@@ -75,3 +75,12 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
   - `python3 - <<'EOF'`
   - `E=/opt/anaconda3/envs/rnamotif/bin; W=results/logo_v1/work/utr3_Yellow\ fever; $E/fimo --oc /private`
   - `head -3 "results/logo_v1/work/utr3_Yellow fever/fimo_obs/fimo.tsv" | cut -c1-200; python3 - <<'EOF'`
+
+## 2026-10-31 23:58 — merge overlapping motifs into families and rank them
+- **Outcome:** pass
+- **Commands:** 5 run, 1 failed
+  - `E=/opt/anaconda3/envs/rnamotif/bin; ls $E | grep -E "^tomtom$|^ceqlogo$|^meme2images$"; $E/tomtom 2>`
+  - `f="results/logo_v2/work/utr3_Zika/streme/streme.txt"; grep -n -E "^(ALPHABET|strands|Background|MOTI`
+  - `cat > scripts/08_families.py <<'EOF'`
+  - `python3 - <<'EOF'`
+  - `python3 - <<'EOF'`
