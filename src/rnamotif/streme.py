@@ -9,10 +9,12 @@ def streme_bin():
     return shutil.which("streme") or f"{ENV_BIN}/streme"
 
 def run_streme(primary_fa, outdir, control_fa=None, minw=6, maxw=12, seed=1, order=2):
+    Path(outdir).parent.mkdir(parents=True, exist_ok=True)
     cmd = [streme_bin(), "--rna", "--p", str(primary_fa), "--oc", str(outdir), "--minw", str(minw),
            "--maxw", str(maxw), "--seed", str(seed), "--order", str(order)]
     if control_fa: cmd += ["--n", str(control_fa)]
-    subprocess.run(cmd, check=True, capture_output=True)
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode: raise RuntimeError(r.stderr[-500:] or r.stdout[-500:])
     return parse_streme(Path(outdir) / "streme.txt")
 
 def parse_streme(txt_path):
