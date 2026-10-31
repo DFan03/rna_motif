@@ -24,3 +24,7 @@ results/logo_v1/
 results/*/utr3_all_seqs.fa
 reference/known_elements/*.i1*
 reference/known_elements/flavi_rfam.cm
+results/families_v1/*/rep_*.meme
+results/families_v1/*_all_reps.fa
+results/families_v1/*/fimo_*
+results/families_v1/*/tomtom/

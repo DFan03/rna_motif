@@ -26,3 +26,12 @@ Setup: C-15..C-19. 5 folds x {utr5, utr3}; 246 motifs reported by STREME (45 wit
   recall: 19.4% of Rfam-covered nt are under a replicated motif site.
 - Interpretation: the pipeline finds sequence that is conserved across serogroups and is modestly enriched at known cis-elements. This is evidence of conservation,
   not of regulatory function or of effect on TE.
+
+## 2026-10-31 — Motif families and ranking `results/families_v1` (script 08)
+- 41 replicated motifs -> **16 families** (13 in 3'UTR, 3 in 5'UTR). Table: `results/families_v1/families_ranked.tsv`; figure: `family_coverage.png`.
+- Top 3'UTR families (representative consensus; groups replicated of 5; clusters with a site of 25; main Rfam overlap):
+  1. GUUAGAGGAGAC (4; 20/25; 86% of sites in Flavivirus_DB)  2. GUCAGGCCA (4; 20/25; early 3'UTR, rel. pos 0.24; 19% in Flavi_xrRNA)
+  3. GGACUAGAGGUU (4; 20/25; 81% in Flavivirus_DB)  4. GUGCAGYCUGY (4; 20/25)  5. CCAGGCACAGA (3; 23/25; 96% in Flavi_CRE; all 5 groups; end of 3'UTR, rel. pos 0.91).
+- Families 1, 3 and 7 all fall in Flavivirus_DB: Tomtom keeps them apart because they cover different parts of the element -> effectively one *locus*, not three.
+- Strong pattern: the top families are present in Dengue, Yellow fever, JE-serogroup and Zika but absent from TBEV (tick-borne vs mosquito-borne divergence); only family 5 (CRE) and a few weak ones occur in TBEV.
+- Caveats: coverage numbers are descriptive (include discovery sequences); rank order depends on C-21; the 5'UTR families are weaker (best discovery E 0.002-0.08 but low-complexity-looking, e.g. UAACAGUUUUUU); no TE data yet, so nothing here says anything about translation.
