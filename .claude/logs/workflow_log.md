@@ -134,3 +134,14 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
 - **Outcome:** pass
 - **Commands:** 1 run, 0 failed
   - `date +%H:%M:%S; ls data/processed/te_ribo/bams/*.bai | sed 's#.*/##; s#.bam.bai##' | tr '\n' ' '; ec`
+
+## 2026-11-01 00:46 — why still running>
+- **Outcome:** pass
+- **Commands:** 7 run, 2 failed
+  - `date +%H:%M:%S; ps -Ao pcpu,etime,comm,args | grep -E "[1]0_ribo_map|bowtie2-align|[c]utadapt|[f]ast`
+  - `kill 61818; sleep 3; tail -2 logs/te_ribo_run.log | cut -c1-120; S=/private/tmp/claude-501/-Users-a0`
+  - `ls data/processed/te_ribo/bams/*.bai | wc -l; /opt/anaconda3/envs/riboseq/bin/python scripts/11_te_d`
+  - `conda install -y -n riboseq -c conda-forge biopython 2>&1 | tail -1; /opt/anaconda3/envs/riboseq/bin`
+  - `python3 - <<'EOF'`
+  - `/opt/anaconda3/envs/riboseq/bin/python - <<'EOF'`
+  - `printf "results/te_descriptive_v1/fimo_*/\nlogs/te_ribo_run.log\n" >> .gitignore && python3 - <<'EOF`
