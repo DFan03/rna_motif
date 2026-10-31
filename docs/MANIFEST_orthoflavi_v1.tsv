@@ -1,0 +1,14 @@
+# source=NCBI nuccore (GenBank) via Entrez; downloaded=2026-10-31; per_species=20
+species	query	n_hits	n_fetched	file	sha256
+Dengue virus 1	"Dengue virus 1"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	2835	20	Dengue_virus_1.gb	fd690b03f41fc8c567c32d2b4072843d723572646d37d02e0efc5dc23f60731b
+Dengue virus 2	"Dengue virus 2"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	1855	20	Dengue_virus_2.gb	1e96f68ecef34d1e6e11ea54d04a903835d072c470cfe6720dc692a98303435c
+Dengue virus 3	"Dengue virus 3"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	1153	20	Dengue_virus_3.gb	d56599a2b60c0ba224ab7617e8650836ab2d12f2ee38d16dd21a46390acdc1f0
+Dengue virus 4	"Dengue virus 4"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	273	20	Dengue_virus_4.gb	1efafd96f12f25c0266b388b527a7eb00d2f6c0f3d626671ac459caafded96ad
+Zika virus	"Zika virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	392	20	Zika_virus.gb	fa29695ded992f9cffa2375d0e7f711fa908fb2ee364217e63f8a2228c4e7057
+West Nile virus	"West Nile virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	2478	20	West_Nile_virus.gb	bcbad48c1aa7f3ef344315bb58ff2a07df5c454ba729068ad7363b4940a3d6e1
+Japanese encephalitis virus	"Japanese encephalitis virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	503	20	Japanese_encephalitis_virus.gb	7fa85e8be13c93b39e92d06990b652b36b792e407855d21cdaba373cd91e149e
+Yellow fever virus	"Yellow fever virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	347	20	Yellow_fever_virus.gb	f5df52ef875c8cdfa895e467fddfd62a687a0369d8d457df46cf138c21699c88
+Tick-borne encephalitis virus	"Tick-borne encephalitis virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	231	20	Tick-borne_encephalitis_virus.gb	e715b6513594b6aa19edbaddec2c40c19f06403c760be382026b7995636518e6
+Usutu virus	"Usutu virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	372	20	Usutu_virus.gb	1d05f045320a2c96f12373d7eec9f815213c9d689347fc8ee7f59c604018f815
+Saint Louis encephalitis virus	"Saint Louis encephalitis virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	18	18	Saint_Louis_encephalitis_virus.gb	526f110d0fd5932d0ee379d59d2a8e0e7ea22b1cb7644b0c55f7e439ef60622c
+Murray Valley encephalitis virus	"Murray Valley encephalitis virus"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	86	20	Murray_Valley_encephalitis_virus.gb	1b1e2ecd9cec748de4aa1f931a27b6cc4450711f814e79b813bdd77159ae7374

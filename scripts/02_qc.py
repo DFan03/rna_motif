@@ -9,6 +9,7 @@ from Bio import SeqIO
 ap = argparse.ArgumentParser()
 ap.add_argument("--raw", required=True); ap.add_argument("--out", required=True)
 ap.add_argument("--max-amb-frac", type=float, default=0.01, help="drop record if non-ACGU fraction above this")
+ap.add_argument("--min-scale", type=float, default=50.0, help="floor (nt) on robust length scale")
 ap.add_argument("--len-mad-z", type=float, default=3.5, help="robust z (per species) for length outlier")
 a = ap.parse_args()
 raw, out = Path(a.raw), Path(a.out); out.mkdir(parents=True, exist_ok=True)
@@ -35,10 +36,12 @@ for gb in sorted(raw.glob("*.gb")):
             definition=r.description))
 n0 = len(recs); df = pd.DataFrame(recs)
 
-# 1 molecule type: must be RNA (genomic ssRNA(+) for flaviviruses)
-bad = df[~df.moltype.fillna("").str.contains("RNA")]
-for acc in bad.acc: drop(acc, "moltype_not_RNA")
+# 1 molecule type: GenBank stores some RNA-virus genomes as cDNA ("DNA"); these are valid, so flag only.
+# Drop only if moltype is missing (cannot tell what the record is).
+bad = df[df.moltype.isna()]
+for acc in bad.acc: drop(acc, "moltype_missing")
 df = df.drop(bad.index)
+for acc in df[~df.moltype.str.contains("RNA")].acc: log.append((acc, "FLAG_moltype_DNA_cDNA(kept)"))
 # 2 alphabet
 df["n_nonacgu"] = df.seq.map(lambda s: sum(c not in "ACGU" for c in s))
 df["amb_frac"] = df.n_nonacgu / df.length
@@ -47,8 +50,8 @@ for acc in bad.acc: drop(acc, f"non_ACGU_frac>{a.max_amb_frac}")
 df = df.drop(bad.index)
 # 3 length outliers (robust z within species query)
 def mz(g):
-    med = g.median(); mad = (g - med).abs().median() or 1.0
-    return 0.6745 * (g - med) / mad
+    med = g.median(); scale = max((g - med).abs().median() / 0.6745, a.min_scale)
+    return (g - med) / scale
 df["len_z"] = df.groupby("species_query").length.transform(mz)
 bad = df[df.len_z.abs() > a.len_mad_z]
 for acc in bad.acc: drop(acc, f"length_outlier_MADz>{a.len_mad_z}")
@@ -56,6 +59,11 @@ df = df.drop(bad.index)
 # 4 missing annotation (no CDS => cannot define UTRs); keep flagged, not dropped
 df["no_cds"] = df.cds_start.isna()
 for acc in df[df.no_cds].acc: log.append((acc, "FLAG_no_CDS_annotation(kept)"))
+# 4b CDS spanning (almost) the whole record => UTRs unusable; drop (UTR-based analysis needs both flanks)
+df["utr5_len"] = df.cds_start; df["utr3_len"] = df.length - df.cds_end
+bad = df[(~df.no_cds) & ((df.utr5_len < 10) | (df.utr3_len < 10))]
+for acc in bad.acc: drop(acc, "UTR_incomplete(<10nt flank)")
+df = df.drop(bad.index)
 # 5 exact duplicates (sequence hash); keep first accession, record members
 df["sha"] = df.seq.map(lambda s: hashlib.sha256(s.encode()).hexdigest())
 dup = df[df.duplicated("sha", keep="first")]
@@ -67,7 +75,6 @@ for col in ["host", "collection_date", "country", "taxid"]:
     df[f"missing_{col}"] = df[col].isna()
 
 # regions from the longest CDS (polyprotein): 5'UTR = [0,cds_start), 3'UTR = [cds_end,L)
-df["utr5_len"] = df.cds_start; df["utr3_len"] = df.length - df.cds_end
 df = df.reset_index(drop=True)
 with open(out/"viral_clean.fasta", "w") as f:
     for _, r in df.iterrows(): f.write(f">{r.acc} {r.organism}\n{r.seq}\n")
@@ -77,7 +84,7 @@ pd.DataFrame(log, columns=["accession", "reason"]).to_csv(out/"qc_log.tsv", sep=
 c = Counter(r.split(":")[0].split("(")[0] for _, r in log)
 rep = [f"# QC report", f"- raw dir: {raw}", f"- records read: {n0}", f"- records kept: {len(df)}",
        f"- removed/flagged by reason: {dict(c)}",
-       f"- params: max_amb_frac={a.max_amb_frac}, len_mad_z={a.len_mad_z}",
+       f"- params: max_amb_frac={a.max_amb_frac}, len_mad_z={a.len_mad_z}, min_scale={a.min_scale}",
        f"- versions: python {platform.python_version()}, biopython {Bio.__version__}, pandas {pd.__version__}",
        "", "## Kept per species", df.species_query.value_counts().to_string(),
        "", "## Length (nt) per species", df.groupby("species_query").length.describe()[["count","min","50%","max"]].to_string(),
