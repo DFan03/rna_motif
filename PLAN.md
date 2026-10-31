@@ -134,3 +134,8 @@ so I will NOT improvise on these; please decide or point me to a reference:
 1. Answer D1-D6 (even partially).
 2. Write `01_fetch.py` + `02_qc.py`, dry run on ~20 records, show you the QC log.
 3. Planted-motif unit test, then Phase 2 dry run.
+
+## 6. Revision log
+- 2026-10-31 (v0.2): Phase 1 complete (see docs/qc_report_orthoflavi_v1.md). Following the "prefer off-the-shelf methods"
+  rule, Phase 2 is revised: STREME/FIMO/AME (MEME Suite) replace the home-built k-mer enrichment + PWM merge; MMseqs2
+  replaces pure-Python clustering; split unit is serogroup. Rationale for every choice: docs/DECISIONS.md.
