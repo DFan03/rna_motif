@@ -1,0 +1,21 @@
+# data & artifacts (keep small manifests/checksums instead)
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+!data/raw/MANIFEST.tsv
+*.pt
+*.pth
+*.ckpt
+*.npz
+# secrets
+.env
+*.env
+secrets/
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.DS_Store
+logs/*.log

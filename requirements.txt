@@ -1,0 +1,9 @@
+# versions in use at setup (Python 3.12.7); pin exact versions when first results are produced
+numpy
+pandas
+scipy
+biopython==1.84
+statsmodels
+matplotlib
+pytest
+# optional, later phase (not installed yet): ViennaRNA (RNAfold), MMseqs2 or CD-HIT for clustering
