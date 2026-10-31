@@ -1,0 +1,17 @@
+#idx target name          accession query name           accession clan name mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc olp anyidx afrct1 afrct2 winidx wfrct1 wfrct2 mdl len seq len description of target
+#--- -------------------- --------- -------------------- --------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- --- ------ ------ ------ ------ ------ ------ ------- ------- ---------------------
+1    Flavivirus_DB        RF00525   ZIKV_IbH30656        -         -          cm        1       72    10590    10663      +    no    1 0.55   0.0   63.3   4.5e-15  !   *       -      -      -      -      -      -      72   10775 Flavivirus DB element
+2    Flavi_CRE            RF00185   ZIKV_IbH30656        -         -          cm        1       91    10683    10775      +    3'    3 0.62   0.0   47.1   3.2e-09  !   *       -      -      -      -      -      -      96   10775 Flavivirus 3' UTR cis-acting replication element (CRE)
+1    Flavivirus_DB        RF00525   DENV2_16681          -         -          cm        1       72    10541    10612      +    no    1 0.60   0.0   90.3   2.2e-22  !   *       -      -      -      -      -      -      72   10723 Flavivirus DB element
+2    Flavi_CRE            RF00185   DENV2_16681          -         -          cm        1       96    10631    10723      +    no    1 0.49   0.0   93.7   1.7e-20  !   *       -      -      -      -      -      -      96   10723 Flavivirus 3' UTR cis-acting replication element (CRE)
+3    Flavivirus_DB        RF00525   DENV2_16681          -         -          cm        1       72    10454    10525      +    no    1 0.57   0.0   74.1   5.3e-18  !   *       -      -      -      -      -      -      72   10723 Flavivirus DB element
+#
+# Program:         cmscan
+# Version:         1.1.5 (Sep 2023)
+# Pipeline mode:   SCAN
+# Query file:      results/te_descriptive_v1/genomes.fa
+# Target file:     reference/known_elements/flavi_rfam.cm
+# Option settings: /opt/anaconda3/envs/rnamotif/bin/cmscan -o /dev/null --tblout results/te_descriptive_v1/genomes_cmscan.tbl --fmt 2 --cut_ga --rfam --nohmmonly reference/known_elements/flavi_rfam.cm results/te_descriptive_v1/genomes.fa 
+# Current dir:     /Users/a000000/rna_motif
+# Date:            Sun Nov  1 00:45:43 2026
+# [ok]

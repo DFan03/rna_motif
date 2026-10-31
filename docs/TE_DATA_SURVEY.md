@@ -6,7 +6,7 @@ flavivirus UTR motif families/loci to TE? Search was by web search + reading the
 ## Candidate datasets (flavivirus infection Ribo-seq)
 | # | Accession | Study | Design | TE readout | Notes |
 |---|-----------|-------|--------|-----------|-------|
-| 1 | GEO GSE207347 | Singh et al., Viruses 2022 ([PMC9316442](https://pmc.ncbi.nlm.nih.gov/articles/PMC9316442)) | Human neural progenitor cells (2 donor clones); ZIKV IbH 30656 and DENV-2 16681, MOI 1, 72 hpi, mock controls; paired Ribo-seq + RNA-seq (HiSeq 2000) | Host genes: RiboDiff TE (19,821 genes). Viruses: descriptive ribosome/RNA ratio only, no formal per-ORF TE or test | Replicate number inconsistent in the paper (n=2 vs "three biological replicates") — check GEO sample list. DENV 3'UTR: high RNA, low ribosome coverage; 5'UTR high coverage; candidate uORFs near capsid start |
+| 1 | GEO GSE207347 | Singh et al., Viruses 2022 ([PMC9316442](https://pmc.ncbi.nlm.nih.gov/articles/PMC9316442)) | Human neural progenitor cells (2 donor clones); ZIKV IbH 30656 and DENV-2 16681, MOI 1, 72 hpi, mock controls; paired Ribo-seq + RNA-seq (HiSeq 2000) | Host genes: RiboDiff TE (19,821 genes). Viruses: descriptive ribosome/RNA ratio only, no formal per-ORF TE or test | Replicates = 2 donor clones (A, B) per condition; GEO labels 1/2/3 = uninfected/ZIKV/DENV-2 (checked in GEO sample table). The paper's "three replicates" most likely means three conditions. DENV 3'UTR: high RNA, low ribosome coverage; 5'UTR high coverage; candidate uORFs near capsid start |
 | 2 | GEO GSE133111 | DENV-2 NGC in A549, RPLP1/2 knockdown ([bioRxiv 713016](https://www.biorxiv.org/content/10.1101/713016v1.full)) | A549, MOI 10, 2.5 hpi; Ribo-seq + RNA-seq in triplicate; non-targeting vs RPLP1/RPLP2 siRNA; no cycloheximide pre-treatment | Ribosome density (RPF/RNA), CDS-focused; pause site at nt 1025-1035 (start of E) | UTRs not analysed separately |
 | 3 | ArrayExpress E-MTAB-5418 (accession reported by a search summary, NOT verified by me) | ZIKV Ribo-seq, mammalian + insect cells ([bioRxiv 112904](https://www.biorxiv.org/content/10.1101/112904v1.full); follow-up [Nat Commun 2024](https://www.nature.com/articles/s41467-024-53085-9)) | ZIKV in Vero and C6/36; Asian/American vs African lineage strains in the 2024 paper | Ribosome density along genome, uORFs | Verify accession before use |
 
@@ -32,3 +32,6 @@ Only part of papers 1 and 2 was read by me (7.6k and 37.9k characters at the end
 2. **Targeted further search** for a viral-UTR library/reporter dataset (different wording / specific labs), then decide.
 3. **Redefine Phase 3** with host-cell data (human UTR MPRA TE) to learn generic TE motifs and check whether any resemble our viral motifs. Different question, needs your approval.
 Nothing has been downloaded; GEO raw FASTQs are typically several GB per series, so I will ask before any download.
+
+## Update 2026-11-01
+Option 1 executed with GSE207347 only (user choice): 12 runs downloaded in streaming mode and mapped to the viral genomes (see RESULTS_LOG). GSE133111 and E-MTAB-5418 were not used.

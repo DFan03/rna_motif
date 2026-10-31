@@ -91,3 +91,46 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
   - `python3 - <<'EOF'`
   - `cat > scripts/09_loci.py <<'EOF'`
   - `python3 - <<'EOF'`
+
+## 2026-11-01 00:02 — find TE data for Phase 3
+- **Outcome:** pass
+- **Commands:** 1 run, 0 failed
+  - `cat > docs/TE_DATA_SURVEY.md <<'EOF'`
+
+## 2026-11-01 00:08 — do option 1
+- **Outcome:** pass
+- **Commands:** 14 run, 0 failed
+  - `/opt/anaconda3/envs/rnamotif/bin/python - <<'EOF' 2>&1 | grep -v -i -E "warn|email|Entrez|NCBI|E-uti`
+  - `/opt/anaconda3/envs/rnamotif/bin/python - <<'EOF' 2>&1 | grep -v -i -E "warn|email|Entrez\.|NCBI wil`
+  - `df -h /Users/a000000 | tail -1; cd /Users/a000000/rna_motif && /opt/anaconda3/envs/rnamotif/bin/pyth`
+  - `conda install -y -n rnamotif -c bioconda -c conda-forge sra-tools cutadapt bowtie2 samtools 2>&1 | t`
+  - `conda create -y -n riboseq -c conda-forge -c bioconda sra-tools cutadapt bowtie2 samtools python=3.1`
+  - `/opt/anaconda3/envs/rnamotif/bin/python - <<'EOF' 2>&1 | grep -v -i -E "warn|email|Entrez\.|NCBI wil`
+  - `mkdir -p data/raw/te_ribo/ref && /opt/anaconda3/envs/rnamotif/bin/python - <<'EOF' 2>&1 | grep -v -i`
+  - `cd /private/tmp/claude-501/-Users-a000000-rna-motif/528baf19-8494-4844-b24e-800973afb3f7/scratchpad `
+
+## 2026-11-01 00:10 — what is going on now
+- **Outcome:** pass
+- **Commands:** 1 run, 0 failed
+  - `cat logs/te_ribo_run.log | cut -c1-300; echo ---; ls data/processed/te_ribo/bams/*.bam 2>/dev/null |`
+
+## 2026-11-01 00:11 — are you running in parallel? do not waste the cpu
+- **Outcome:** pass
+- **Commands:** 1 run, 0 failed
+  - `ps -Ao pcpu,pid,comm,args | grep -E "bowtie2-align|cutadapt|fastq-dump|samtools|10_ribo_map|10b_run|`
+
+## 2026-11-01 00:13 — I do not care about machine running hot or noisy, use all cpu and do things quick
+- **Outcome:** pass
+- **Commands:** 2 run, 0 failed
+  - `pkill -f "[1]0b_run_all" ; pkill -f "[1]0_ribo_map" ; pkill -f "[r]iboseq/bin/(fastq-dump|cutadapt|b`
+  - `cut -c1-200 logs/te_ribo_run.log; echo ---; ls data/processed/te_ribo/bams/*.bai | wc -l; ps -Ao pcp`
+
+## 2026-11-01 00:14 — how long  does it take esimate
+- **Outcome:** pass
+- **Commands:** 1 run, 0 failed
+  - `date; ls data/processed/te_ribo/bams/*.bai | wc -l; S=/private/tmp/claude-501/-Users-a000000-rna-mot`
+
+## 2026-11-01 00:33 — whats the progress?
+- **Outcome:** pass
+- **Commands:** 1 run, 0 failed
+  - `date +%H:%M:%S; ls data/processed/te_ribo/bams/*.bai | sed 's#.*/##; s#.bam.bai##' | tr '\n' ' '; ec`

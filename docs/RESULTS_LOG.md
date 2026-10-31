@@ -44,3 +44,16 @@ Setup: C-15..C-19. 5 folds x {utr5, utr3}; 246 motifs reported by STREME (45 wit
 - Seven families remain unannotated (e.g. GUCAGGCCA, GUGCAGYCUGY, GCAUAUUGAC), all replicated in 1-4 groups. GUCAGGCCA / GUGCAGYCUGY sit early in the 3'UTR where xrRNA is expected, but the Rfam xrRNA model detects xrRNA only in JE-serogroup, so this is NOT confirmed.
 - Correction: the earlier family count split was 12 (3'UTR) / 4 (5'UTR), not 13/3.
 - Ranking of loci uses the C-21 criteria applied to loci (union of groups/clusters).
+
+## 2026-11-01 — Phase 3 descriptive: ribosome vs RNA density on ZIKV and DENV-2 (GSE207347) `results/te_descriptive_v1`
+Data: 12 libraries (6 Ribo-seq + 6 RNA-seq) = 2 donor clones (A, B) x {uninfected, ZIKV IbH 30656, DENV-2 16681}, 72 hpi, hNPC. NOTE: the 'replicates' are the two donors;
+the paper's 'three replicates' is the three conditions (correction to TE_DATA_SURVEY). One run (A2_RNA) stalled in download and was re-run once (success).
+- **QC passed:** viral footprints/reads - ZIKV: ribo 53.7k (A) / 37.4k (B), RNA 555k / 590k; DENV-2: ribo 48.3k / 26.4k, RNA 338k / 930k. Uninfected and cross-virus samples: <=~200 reads (noise floor).
+  Footprint periodicity: 73-77% of P-sites in one frame (genuine Ribo-seq).
+- **Ribosome/RNA density relative to CDS (=1):** 3'UTR 0.13/0.06 (ZIKV A/B) and 0.22/0.16 (DENV-2 A/B): the 3'UTR is mostly non-translated, as expected (its RNA density also includes the
+  accumulating sfRNA fragment). 5'UTR: DENV-2 1.31/1.82 (high ribosome occupancy, consistent with the authors' report), ZIKV 0.47/0.63 (affected by the 9-nt shorter 5' end of the reference).
+- **Motif loci vs translation:** the replicated 3'UTR loci (Flavivirus_DB, Flavi_CRE, unannotated families) all lie in the non-translated 3'UTR (Rfam hits at nt 10454-10723 DENV-2, 10590-10775 ZIKV).
+  The whole 3'UTR holds only 358 (DENV-2) and 332 (ZIKV) footprint P-sites across both donors, so per-site counts are 0-30 and observed/expected ratios (0-4.8) are NOT interpretable;
+  no conclusion about any motif and translation can be drawn. Flavivirus_DB sites show lower RNA density than expected (0.5-0.6x), unexplained (sfRNA 5' end / RNA-seq coverage), not tested.
+- **FIMO hits in CDS/5'UTR:** the 3'UTR-derived motifs also match many CDS positions (p<1e-4 on a 10-kb genome yields chance hits); these are not evidence of function and are not used.
+- Bottom line for Phase 3: with these data the motif loci can only be *annotated* (non-translated 3'UTR elements; any TE effect would be indirect, e.g. via sfRNA/replication), not linked to TE statistically.

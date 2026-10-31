@@ -28,3 +28,8 @@ results/families_v1/*/rep_*.meme
 results/families_v1/*_all_reps.fa
 results/families_v1/*/fimo_*
 results/families_v1/*/tomtom/
+data/processed/te_ribo/
+data/interim/te_ribo/
+data/raw/te_ribo/
+results/te_descriptive_v1/fimo_*/
+logs/te_ribo_run.log
