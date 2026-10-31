@@ -50,3 +50,15 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
   - `python3 -I - <<'EOF'`
   - `python3 - <<'EOF'`
   - `cp data/processed/orthoflavi_v1/qc_report.md docs/qc_report_orthoflavi_v1.md && cp data/processed/or`
+
+## 2026-10-31 23:44 — for any sort of things, if a off the shelf liberary/method exist and has been used in relevant research, try to go with that or at least fol
+- **Outcome:** pass
+- **Commands:** 25 run, 1 failed
+  - `cd /Users/a000000/.claude/projects/-Users-a000000-rna-motif/memory 2>/dev/null && ls; cat MEMORY.md `
+  - `for f in mmseqs2 cd-hit vsearch meme viennarna; do echo "== $f"; brew info $f 2>&1 | head -2; done; `
+  - `which conda mamba; conda search -c bioconda -c conda-forge meme --platform osx-arm64 2>&1 | tail -4;`
+  - `(conda create -y -n rnamotif -c conda-forge -c bioconda python=3.12 meme mmseqs2 viennarna biopython`
+  - `E=/opt/anaconda3/envs/rnamotif/bin; ls $E | grep -E "^(streme|meme|fimo|mmseqs|RNAfold|fasta-shuffle`
+  - `cat > scripts/03_cluster.py <<'EOF'`
+  - `/opt/anaconda3/envs/rnamotif/bin/python - <<'EOF'`
+  - `cat > scripts/04_split.py <<'EOF'`

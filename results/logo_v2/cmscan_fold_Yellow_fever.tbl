@@ -1,0 +1,15 @@
+#idx target name          accession query name           accession clan name mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc olp anyidx afrct1 afrct2 winidx wfrct1 wfrct2 mdl len seq len description of target
+#--- -------------------- --------- -------------------- --------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- --- ------ ------ ------ ------ ------ ------ ------- ------- ---------------------
+1    Flavi_CRE            RF00185   MG969501.1           -         -          cm        1       96      553      651      +    no    1 0.47   0.0   73.6   7.4e-17  !   *       -      -      -      -      -      -      96     653 Flavivirus 3' UTR cis-acting replication element (CRE)
+1    Flavi_CRE            RF00185   MN708488.1           -         -          cm        1       96      408      506      +    no    1 0.47   0.0   73.6   5.7e-17  !   *       -      -      -      -      -      -      96     508 Flavivirus 3' UTR cis-acting replication element (CRE)
+1    Flavi_CRE            RF00185   MW960207.1           -         -          cm        1       96      367      465      +    no    1 0.49   0.0   71.9   1.4e-16  !   *       -      -      -      -      -      -      96     467 Flavivirus 3' UTR cis-acting replication element (CRE)
+#
+# Program:         cmscan
+# Version:         1.1.5 (Sep 2023)
+# Pipeline mode:   SCAN
+# Query file:      results/logo_v2/work/utr3_Yellow fever/test_reps.fa
+# Target file:     reference/known_elements/flavi_rfam.cm
+# Option settings: /opt/anaconda3/envs/rnamotif/bin/cmscan -o /dev/null --tblout results/logo_v2/cmscan_fold_Yellow_fever.tbl --fmt 2 --cut_ga --rfam --cpu 4 --nohmmonly reference/known_elements/flavi_rfam.cm results/logo_v2/work/utr3_Yellow fever/test_reps.fa 
+# Current dir:     /Users/a000000/rna_motif
+# Date:            Sat Oct 31 23:55:20 2026
+# [ok]

@@ -19,3 +19,8 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 logs/*.log
+results/*/work/
+results/logo_v1/
+results/*/utr3_all_seqs.fa
+reference/known_elements/*.i1*
+reference/known_elements/flavi_rfam.cm

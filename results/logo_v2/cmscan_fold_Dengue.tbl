@@ -1,0 +1,24 @@
+#idx target name          accession query name           accession clan name mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc olp anyidx afrct1 afrct2 winidx wfrct1 wfrct2 mdl len seq len description of target
+#--- -------------------- --------- -------------------- --------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- --- ------ ------ ------ ------ ------ ------ ------- ------- ---------------------
+1    Flavivirus_DB        RF00525   MW315194.1           -         -          cm        1       72      279      350      +    no    1 0.61   0.0   90.6   8.2e-24  !   *       -      -      -      -      -      -      72     472 Flavivirus DB element
+2    Flavi_CRE            RF00185   MW315194.1           -         -          cm        1       96      370      462      +    no    1 0.49   0.0   90.9   3.6e-21  !   *       -      -      -      -      -      -      96     472 Flavivirus 3' UTR cis-acting replication element (CRE)
+3    Flavivirus_DB        RF00525   MW315194.1           -         -          cm        1       72      195      266      +    no    1 0.58   0.0   74.4     2e-19  !   *       -      -      -      -      -      -      72     472 Flavivirus DB element
+1    Flavivirus_DB        RF00525   MW577819.1           -         -          cm        1       72      270      341      +    no    1 0.56   0.0   90.0   1.1e-23  !   *       -      -      -      -      -      -      72     452 Flavivirus DB element
+2    Flavi_CRE            RF00185   MW577819.1           -         -          cm        1       96      360      452      +    no    1 0.49   0.0   93.7     7e-22  !   *       -      -      -      -      -      -      96     452 Flavivirus 3' UTR cis-acting replication element (CRE)
+3    Flavivirus_DB        RF00525   MW577819.1           -         -          cm        1       72      183      254      +    no    1 0.57   0.0   74.1   2.2e-19  !   *       -      -      -      -      -      -      72     452 Flavivirus DB element
+1    Flavi_CRE            RF00185   JX669497.1           -         -          cm        1       96      348      440      +    no    1 0.51   0.0   92.2   1.6e-21  !   *       -      -      -      -      -      -      96     442 Flavivirus 3' UTR cis-acting replication element (CRE)
+2    Flavivirus_DB        RF00525   JX669497.1           -         -          cm        1       72      258      330      +    no    1 0.60   0.0   72.6   5.8e-19  !   *       -      -      -      -      -      -      72     442 Flavivirus DB element
+3    Flavivirus_DB        RF00525   JX669497.1           -         -          cm        1       72      174      245      +    no    1 0.58   0.0   71.8   9.3e-19  !   *       -      -      -      -      -      -      72     442 Flavivirus DB element
+1    Flavivirus_DB        RF00525   OL314743.1           -         -          cm        1       72      205      277      +    no    1 0.60   0.0   84.9   2.3e-22  !   *       -      -      -      -      -      -      72     387 Flavivirus DB element
+2    Flavi_CRE            RF00185   OL314743.1           -         -          cm        1       96      295      387      +    no    1 0.52   0.0   84.1   1.3e-19  !   *       -      -      -      -      -      -      96     387 Flavivirus 3' UTR cis-acting replication element (CRE)
+3    Flavivirus_DB        RF00525   OL314743.1           -         -          cm        1       72      113      184      +    no    1 0.60   0.0   69.4   3.7e-18  !   *       -      -      -      -      -      -      72     387 Flavivirus DB element
+#
+# Program:         cmscan
+# Version:         1.1.5 (Sep 2023)
+# Pipeline mode:   SCAN
+# Query file:      results/logo_v2/work/utr3_Dengue/test_reps.fa
+# Target file:     reference/known_elements/flavi_rfam.cm
+# Option settings: /opt/anaconda3/envs/rnamotif/bin/cmscan -o /dev/null --tblout results/logo_v2/cmscan_fold_Dengue.tbl --fmt 2 --cut_ga --rfam --cpu 4 --nohmmonly reference/known_elements/flavi_rfam.cm results/logo_v2/work/utr3_Dengue/test_reps.fa 
+# Current dir:     /Users/a000000/rna_motif
+# Date:            Sat Oct 31 23:55:20 2026
+# [ok]
