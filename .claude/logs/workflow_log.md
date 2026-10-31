@@ -84,3 +84,10 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
   - `cat > scripts/08_families.py <<'EOF'`
   - `python3 - <<'EOF'`
   - `python3 - <<'EOF'`
+
+## 2026-10-31 23:59 — merge the 3'UTR families by Rfam locus
+- **Outcome:** pass
+- **Commands:** 3 run, 0 failed
+  - `python3 - <<'EOF'`
+  - `cat > scripts/09_loci.py <<'EOF'`
+  - `python3 - <<'EOF'`
