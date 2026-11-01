@@ -1,5 +1,5 @@
 # source=NCBI nuccore (GenBank) via Entrez; downloaded=2026-10-31; per_species=20
-species	query	n_hits	n_fetched	file	sha256
+# GenBank release number: 274.0 (read from ftp.ncbi.nlm.nih.gov/genbank/GB_Release_Number on 2026-11-01, one day after the download; it was not captured at download time)species	query	n_hits	n_fetched	file	sha256
 Dengue virus 1	"Dengue virus 1"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	2835	20	Dengue_virus_1.gb	fd690b03f41fc8c567c32d2b4072843d723572646d37d02e0efc5dc23f60731b
 Dengue virus 2	"Dengue virus 2"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	1855	20	Dengue_virus_2.gb	1e96f68ecef34d1e6e11ea54d04a903835d072c470cfe6720dc692a98303435c
 Dengue virus 3	"Dengue virus 3"[Organism] AND viruses[filter] AND 9000:12500[SLEN] AND "complete genome"[Title]	1153	20	Dengue_virus_3.gb	d56599a2b60c0ba224ab7617e8650836ab2d12f2ee38d16dd21a46390acdc1f0

@@ -40,6 +40,10 @@ for sp in SPECIES[:a.n_species]:
 with open(out/"MANIFEST.tsv", "w") as m:
     m.write("# source=NCBI nuccore (GenBank) via Entrez; downloaded=%s; per_species=%d\n" %
             (datetime.date.today(), a.per_species))
+    try:
+        import urllib.request; rel = urllib.request.urlopen("https://ftp.ncbi.nlm.nih.gov/genbank/GB_Release_Number", timeout=20).read().decode().strip()
+    except Exception: rel = "unavailable"
+    m.write("# GenBank release number at download: %s\n" % rel)
     m.write("species\tquery\tn_hits\tn_fetched\tfile\tsha256\n")
     for r in rows: m.write("\t".join(map(str, r)) + "\n")
 print("done ->", out)

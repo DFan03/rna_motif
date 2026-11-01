@@ -1,0 +1,35 @@
+== 1 PARSE (GenBank record -> fields)
+LOCUS MN566104 10808 bp ss-RNA | Zika virus isolate Haiti/0011/2016, complete genome
+{'organism': 'Zika virus', 'host': 'Homo sapiens', 'collection_date': '31-May-2016', 'isolate': 'Haiti/0011/2016'} | taxon: ['taxon:64320']
+longest CDS (polyprotein): 108..10379  -> 5'UTR 107 nt, 3'UTR 429 nt
+non-ACGT bases: 0 | T->U applied for RNA
+
+== 2 QC checks
+length 10808 nt vs species median 10764: robust z = 0.87 (limit 3.5) -> pass | ambiguity 0 % (limit 1 %) -> pass | unique sequence hash -> pass | has CDS and UTR flanks >= 10 nt -> pass
+entries for this accession in qc_log: none (kept, no flags)
+
+== 3 CLUSTER (MMseqs2, >=90 % identity)
+cluster representative MN566104.1, cluster size 13 -> this record's weight = 1/13 = 0.077; members: KU926309.2, KX694532.2, KY328289.1, KY765325.1, MF794971.1, MH157202.1 ...
+
+== 4 SPLIT
+serogroup = Zika; fixed split (seed 42): heldout; in leave-one-group-out fold 'hold out Zika' this record is TEST data, in the 4 other folds it is TRAINING data
+
+== 5 REGIONS
+5'UTR 107 nt | CDS 10272 nt | 3'UTR 429 nt (file data/processed/orthoflavi_v1/regions/utr3_*_reps90.fa)
+
+== 6 MOTIF SITES FOUND IN THIS 3'UTR (family representatives, FIMO p<1e-4)
+family #12 CCACGGUUUGA    3'UTR nt 36-46  matched CCACAGCUUGG  p=4.3e-06
+family #7 SGAAGCUGUANG   3'UTR nt 48-59  matched GAAAGCUGUGCA  p=5.1e-05
+family #4 GUGCAGYCUGY    3'UTR nt 55-65  matched GUGCAGCCUGU  p=4.8e-07
+family #2 GUCAGGCCA      3'UTR nt 102-110  matched GUCAGGCCG  p=5.3e-05
+family #4 GUGCAGYCUGY    3'UTR nt 136-146  matched AUGCUGCCUGU  p=7.5e-05
+family #13 GUGGCGACG      3'UTR nt 213-221  matched GUGGCGACC  p=7.6e-05
+family #3 GGACUAGAGGUU   3'UTR nt 280-291  matched GGACUAGUGGUU  p=2.2e-06
+family #1 GUUAGAGGAGAC   3'UTR nt 289-300  matched GUUAGAGGAGAC  p=6.0e-08
+family #10 AAAAACAGCA     3'UTR nt 314-323  matched CAAAACAGCA  p=1.9e-06
+family #6 GCAUAUUGAC     3'UTR nt 321-330  matched GCAUAUUGAC  p=9.5e-07
+family #11 UUUUCCWC       3'UTR nt 357-364  matched GUUUCCAC  p=4.6e-05
+family #5 CCAGGCACAGA    3'UTR nt 376-386  matched CCAGGCACAGA  p=2.4e-07
+
+== 7 EVIDENCE FOR THE #1 FAMILY (held out: Zika)
+discovered on the other 4 groups with STREME E=0.0013; in held-out Zika: 2/2 clusters have a site vs 0.02 expected in dinucleotide shuffles; empirical p=0.0050, BH FDR=0.030, replicated=True

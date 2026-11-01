@@ -145,3 +145,11 @@ One entry per task, appended automatically by ~/.claude/hooks/log_event.py.
   - `python3 - <<'EOF'`
   - `/opt/anaconda3/envs/riboseq/bin/python - <<'EOF'`
   - `printf "results/te_descriptive_v1/fimo_*/\nlogs/te_ribo_run.log\n" >> .gitignore && python3 - <<'EOF`
+
+## 2026-11-01 00:49 — write the final README for review
+- **Outcome:** pass
+- **Commands:** 2 run, 0 failed
+- **Files changed:** README.md
+- **Commits:** python3 - <<'EOF'
+  - `conda env export -n rnamotif --no-builds > environment.yml && conda env export -n riboseq --no-build`
+  - `python3 - <<'EOF'`
